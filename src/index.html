@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form - Company Website</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Contact Us</h1>
+        <form id="contactForm" method="POST" action="submit.php" novalidate>
+            <!-- Name Field -->
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <div class="error-message" id="nameError">Please enter your name.</div>
+            </div>
+            
+            <!-- Email Field -->
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <div class="error-message" id="emailError">Please enter a valid email address.</div>
+            </div>
+            
+            <!-- Phone Field -->
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}">
+                <div class="error-message" id="phoneError">Please enter a 10-digit phone number.</div>
+            </div>
+            
+            <!-- Message Field -->
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+                <div class="error-message" id="messageError">Please enter your message.</div>
+            </div>
+            
+            <!-- Contact Method Radio Buttons -->
+            <div class="form-group">
+                <label>Preferred Contact Method:</label>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="contactMethod" value="Email" required> Email
+                    </label>
+                    <label>
+                        <input type="radio" name="contactMethod" value="Phone"> Phone
+                    </label>
+                    <label>
+                        <input type="radio" name="contactMethod" value="Both"> Both
+                    </label>
+                </div>
+                <div class="error-message" id="contactMethodError">Please select a contact method.</div>
+            </div>
+            
+            <!-- Inquiry Type Dropdown -->
+            <div class="form-group">
+                <label for="inquiryType">Inquiry Type:</label>
+                <select id="inquiryType" name="inquiryType" required>
+                    <option value="">-- Select an option --</option>
+                    <option value="General Inquiry">General Inquiry</option>
+                    <option value="Support Request">Support Request</option>
+                    <option value="Feedback">Feedback</option>
+                </select>
+                <div class="error-message" id="inquiryTypeError">Please select an inquiry type.</div>
+            </div>
+            
+            <!-- Form Actions -->
+            <div class="form-actions">
+                <button type="button" id="previewBtn" class="btn preview-btn">Preview</button>
+                <button type="submit" class="btn submit-btn">Submit</button>
+            </div>
+        </form>
+        
+        <!-- Preview Section -->
+        <div id="previewSection" class="preview-section">
+            <h2>Preview Your Information</h2>
+            <div class="preview-item">
+                <strong>Name:</strong> <span id="previewName"></span>
+            </div>
+            <div class="preview-item">
+                <strong>Email:</strong> <span id="previewEmail"></span>
+            </div>
+            <div class="preview-item">
+                <strong>Phone:</strong> <span id="previewPhone"></span>
+            </div>
+            <div class="preview-item">
+                <strong>Message:</strong> <span id="previewMessage"></span>
+            </div>
+            <div class="preview-item">
+                <strong>Preferred Contact Method:</strong> <span id="previewContactMethod"></span>
+            </div>
+            <div class="preview-item">
+                <strong>Inquiry Type:</strong> <span id="previewInquiryType"></span>
+            </div>
+            <button id="closePreview" class="btn">Close Preview</button>
+        </div>
+    </div>
+
+    <script src="../js/validation.js"></script>
+</body>
+</html>
